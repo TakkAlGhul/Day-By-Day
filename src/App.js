@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import moment from 'moment'
+import Title from './components/Title'
+import ModalButton from './components/ModalButton'
+import Board from './components/Board';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <nav>
+          <div className="nav-wrapper green">
+            <div className="brand-logo center"><Title title={ today } /></div>
+            <div className="right hide-on-med-and-down">
+              <ModalButton />  
+            </div>
+          </div>
+        </nav>
+        <Board />
+      </div>
+      
+
+    )
+  }
+};
+
+const today = moment().format('DD/MMM/YYYY');
 
 export default App;
